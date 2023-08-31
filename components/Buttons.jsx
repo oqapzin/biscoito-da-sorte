@@ -10,9 +10,9 @@ const Buttons = ({ buttonTitle, buttonClick, returnActive = true }) => {
     }
 
     return (
-        <TouchableOpacity style={styles.buttonStyle} onPress={() => isButtonClicked()}>
+        <TouchableOpacity style={[styles.buttonStyle,!returnActive?{borderColor:'#f5d0ad'}:{borderColor: '#dd7b22'}]} onPress={() => isButtonClicked()} disabled={!returnActive}>
             <View style={styles.buttonSpace}>
-                <Text style={styles.buttonText}>{buttonTitle}</Text>
+                <Text style={[styles.buttonText,!returnActive?{color:'#f5d0ad'}:{color: '#dd7b22'}]}>{buttonTitle}</Text>
             </View>
         </TouchableOpacity>
     )

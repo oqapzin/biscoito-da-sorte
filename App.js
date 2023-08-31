@@ -1,16 +1,18 @@
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Appearance, StyleSheet, View } from 'react-native';
 import InitialPage from './components/InitialPage';
 import TextPage from './components/TextPage';
 
 export default function App() {
   const [initialPage, setInitialPage] = useState(false)
 
-  function getStatus(returnStatus) {
-    console.log(returnStatus)
-  }
+
+  /*DarkMode utilizando as preferências de cores do aparelho celular.*/ 
+  const colorScheme = Appearance.getColorScheme();
+  const isDarkMode = colorScheme??"light"
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container,(isDarkMode == "dark") ? { backgroundColor: 'black' } : { backgroundColor: '#fff' }]}>
 
       {!initialPage ?
         <InitialPage generateText={()=>setInitialPage(true)}/>
@@ -24,7 +26,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },

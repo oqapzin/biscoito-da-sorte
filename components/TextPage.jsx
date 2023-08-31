@@ -27,10 +27,7 @@ const TextPage = ({ resetPage }) => {
                 style={styles.logo}
                 source={require('../assets/biscoitoAberto.png')}
             />
-
-
             <Text style={styles.textStyle}>{genenratePhrase()}</Text>
-
             <Buttons buttonTitle={"Quebrar Biscoito"} returnActive={false} />
             <Buttons buttonTitle={"Reiniciar Biscoito"} buttonClick={() => resetPage(true)} />
 
